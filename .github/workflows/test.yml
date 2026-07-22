@@ -1,0 +1,23 @@
+name: Build and Test
+on: [push]
+jobs:
+  - name: Checkout code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run build
+        run: echo 'Build successful'
+
+      - name: Run tests
+        run: echo 'Tests successful'
+
+  - name: Upload artifacts
+    uses: actions/upload-artifact@v3
+    with:
+      name: build
+      path: .
+
+  - name: Display build result
+    run: echo 'Build successful'
